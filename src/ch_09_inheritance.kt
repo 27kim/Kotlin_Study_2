@@ -110,6 +110,21 @@ fun main(args: Array<String>) {
     var pTest = propertyVisiblity()
     println(pTest.data)
 //    data = 10
+/*
+
+    var sub11 = Sub()
+    var super11 = Super()
+
+    if( sub11 is Sub) println("sub11  is Sub()") else {println("sub11  is not Sub()")}
+    if( sub11 is Super) println("sub11  is Super()")else {println("sub11  is not Super()")}
+    if( sub11 is Any) println("sub11  is Any()")else {println("sub11  is not Any()")}
+*/
+    println("스마트 캐스트 더블 ? ${smartCast(10.0)}")
+//
+//
+//    var asdf = propertyVisiblity()
+//    asdf.
+
 }
 
 /**
@@ -118,7 +133,7 @@ fun main(args: Array<String>) {
 
 val obj7 : SuperAS? = null
 //런타임 에러 발
-val obj8 : SubAs1 = obj7 as SubAs1
+//val obj8 : SubAs1 = obj7 as SubAs1
 //as 를 as? 로 변경해야하고
 //그러면 SubAs1 도 null 허용으로 변경해야함
 val obj9 : SubAs1? = obj7 as? SubAs1
@@ -145,7 +160,8 @@ val obj9 : SubAs1? = obj7 as? SubAs1
 
 //3. 프로퍼티와 접근 제한자
 class propertyVisiblity {
-    var data: Int = 10
+//     var data: Int = 10
+     var data: Int = 10
         get() = field
         private set(value) {
             field = value
@@ -153,4 +169,5 @@ class propertyVisiblity {
 }
 
 class asdfasdf {
+
 }

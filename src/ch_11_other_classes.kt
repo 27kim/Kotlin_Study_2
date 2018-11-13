@@ -1,5 +1,7 @@
 package eleven
 
+import ln
+
 /**
  * 데이터 클래스란?
  * 1. 주생성자를 선언해야하며 매개 변소는 최소 한 개 이상
@@ -9,7 +11,7 @@ package eleven
  * 데이터 클래스의 함수
  * equals() / hashcode()
  * toString()
- * conponentN()
+ * componentN()
  * copy()
  *
  * equals() : 데이터의 값을 비교
@@ -24,6 +26,15 @@ package eleven
  * component1(), component2()등 데이터 클래스의 프로퍼티에 대해 자동으로 만들어짐
  * */
 data class User (val name : String, val age : Int)
+
+/**
+ * Enum 클래스
+ * 11.2.1 열거형 클래스 선언 및 이용
+ *
+ * */
+enum class Direction{
+    NORTH, SOUTH, WEST, EAST
+}
 
 fun main(args: Array<String>) {
     var user = User("Jane", 4)
@@ -47,13 +58,29 @@ fun main(args: Array<String>) {
     println(user3)
 
     /**
+     * ENUM 클래스     * */
+
+    val direction : Direction = Direction.EAST
+
+    ln("enum 클래스 확인")
+    println("${direction.ordinal} / ${direction.name}")
+
+    ln("enum values")
+
+    var enumArr = Direction.values()
+    enumArr.forEach { println(it.name) }
+
+    ln("enum value of")
+    var ev = Direction.valueOf("WEST")
+    println("${ev.ordinal} / ${ev.name}")
+    /**
      * inner class
      * */
 
     var testClass = Outer.Nested()
     //이건 안됨
     //inner 가 추가된 nested 클래스는 외부에서 객체로 생성할 수 없다.
-    var testClass2 = Outer.Nested2()
+//    var testClass2 = Outer.Nested2()
     //이건 됨
     var testClass3 = Outer().Nested2()
     //이거도
@@ -65,7 +92,7 @@ fun main(args: Array<String>) {
     val obj11 = Outer2()
     //private 이 없으면 myInner 까지는 접근 가능하지만  Any 타입이라 내부 프로퍼티가 없다.
     //private 이 있으면 외부에서 object 클래스를 부를 수가 없당
-    obj11.myInner.innerFun()
+//    obj11.myInner.innerFun()
 
     /**
      * object 클래스의 타입 명시
@@ -157,7 +184,7 @@ class Outer2{
      * */
       var myInner = object : someInterface{
         override fun interfaceFun() {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
         }
 
         val name : String = "kkang"
@@ -168,7 +195,7 @@ class Outer2{
     }
 
     fun outerFun(){
-        myInner.name
+//        myInner.name
         no = 1
     }
 }

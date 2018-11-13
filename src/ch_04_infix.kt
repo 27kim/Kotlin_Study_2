@@ -1,3 +1,7 @@
+fun ln(header : String){
+    println("=======================$header=======================")
+}
+
 //1. 확장함수일 때 infix 사용 가능
 infix fun Int.myFun(x : Int) : Int{
     return this * x
