@@ -162,10 +162,11 @@ class Outer{
  * Object 클래스
  * 익명 클래스를 정의할 때 사용한다.
  *
- * 클래스명이 없지만, 선언과 동시에 객체가 생성 된다.
+ * 클래스명이 없다
+ * 선언과 동시에 객체가 생성 된다.-> 생성자를 추가할 수가 없다
  * 이름이 없으므로 반복해서 객체 생성은 불가능.
  *
- * -생성자를 추가할 수가 없다
+ *
  * */
 
 //최상위에 작성 가능
@@ -194,8 +195,17 @@ class Outer2{
         }
     }
 
+    companion object asdf {
+        val name : String = "kkang"
+        fun innerFun(){
+            println("innerFun.....")
+
+        }
+    }
+
     fun outerFun(){
 //        myInner.name
+        myInner.interfaceFun()
         no = 1
     }
 }
@@ -209,7 +219,7 @@ interface someInterface{
 }
 /**
  * object선언
- * object 예약어를 이용해 이름이 있는 클래스도 선언할 수가 있다.
+ * object 예약어를 이용해 """""이름이 있는 클래스"""""도 선언할 수가 있다.
  * 싱글톤 클래스 생성할 때 사용을 하면 됨
  * */
 
@@ -218,6 +228,10 @@ object objectClass {
 }
 
 /**
+ * 클래스 내부에 선언한 멤버 중 객체 생성 없이 클래스명으로 직접 이용하기 위해
+ * companion object 를 사용한다.
+ * 
+ *
  * companion 예약어를 통해 Outer.Nested.변수명이 아니라
  * Outer.변수명으로 접근할 수 있다.
  * 이유는 object 클래스가 자바로 변형될 때는 static 이 추가되기 때문
