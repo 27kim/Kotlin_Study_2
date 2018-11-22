@@ -96,16 +96,19 @@ fun sum (x1 : Int, x2 : Int) : Int {
     return x1 + x2
 }
 
-//var test2 = { x1 , x2  -> x1 + x2} //타입을 넣지 않아도 에러 발생하네
+var test2 = { x1 :Int , x2 :Int -> x1 + x2} //타입을 넣지 않아도 에러 발생하네
 //{ x1 : Int, x2 : Int -> x1 + x2} //값을 할당하지 않으면 에러 발생하네
 
 //이상해 보이지만? 함수는 일급 객체이므로 함수를 변수에 대입할 수 있고, 다른 함수의 반환 값으로 사용될 수 있다.
 //--> 함수는 변수처럼 이용될 수 있다.
-var test1 = { x1 : Int, x2 : Int -> x1 + x2}
+//    println(x1)
+//    println(x2)
+//    var result = x1*x2
+//    x1 + x2}
 
 fun main(args: Array<String>) {
 
-    var lambdaResult = test1(10,20);
+//    var lambdaResult = test1(10,20);
 
 
     /**
@@ -130,7 +133,9 @@ fun main(args: Array<String>) {
         1+1
     }
 
-
+    var test333 = {x1 : Int -> x1 +1}
+    test333(10)
+    var test : (Int) -> Int = { it * 10}
     /**
      * 멤버 참조 이용
      * */

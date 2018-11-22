@@ -73,6 +73,8 @@ fun main(args: Array<String>) {
     ln("enum value of")
     var ev = Direction.valueOf("WEST")
     println("${ev.ordinal} / ${ev.name}")
+
+
     /**
      * inner class
      * */
@@ -242,5 +244,9 @@ class OuterCompanion{
         val no = 0
         fun myFun(){}
 
+    }
+    fun myFun(){
+        no
+        myFun()
     }
 }
