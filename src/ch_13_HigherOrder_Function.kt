@@ -343,6 +343,20 @@ fun main(args: Array<String>) {
 
     println(closureFun3(10))
     println(closureFun4(10))
+
+
+
+
+    fun testest ( x : String) : (Int) -> Int {
+
+        when(x){
+            "*" -> return { x -> x* x}
+            "+" -> return { x -> x+ x}
+            "-" -> return { x -> x - x}
+            else -> return { x -> x - x}
+        }
+    }
+
 }
 
 inline fun inlineTest2(args : (Int) -> Int, noinline args2 : (Int) -> Int) : Int{
