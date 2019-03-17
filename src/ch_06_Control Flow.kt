@@ -1,10 +1,19 @@
 import kotlin.coroutines.experimental.coroutineContext
 
 fun main(args: Array<String>) {
+    /**
+     * 6.1 조건문
+     * 6.1.1 if 표현식
+     *
+     * 표현식이란?
+     *  변수, 상수, 연산자, 함수로 구성되어 무언가 값을 만드는 문장을 의미
+     *
+     * */
     val a = 15
     //if 문은 표현식.
     //표현식으로 사용할 때는 반드시 else가 들어가야 함
-    var result = if (a > 10) "bigger than 10" else "less than 10"
+    var result = if (a > 10) "bigger than 10"
+    else "less than 10"
     println(result)
 
 
@@ -27,6 +36,10 @@ fun main(args: Array<String>) {
     some(a1)
     some(if (count > 5) "true" else "false")
 
+
+    /**
+     * 6.1.2 when 표현식
+     * */
     //when 표현식
 
     //1. 정수로 분기
@@ -65,28 +78,38 @@ fun main(args: Array<String>) {
 
     when (a5) {
         in 10..30 -> println("test a5? $a5")
-        in 100.. 300 -> println("test a5? $a5")
+        in 100..300 -> println("test a5? $a5")
     }
 
-    //5. 여려 타입으로 분기
-    var a6 : Any = "test value"
+    //5. 여러 타입으로 분기 : Any 타입으로만 가능
+    var a6: Any = "test value"
 
-    when(a6){
+    when (a6) {
         is Boolean -> "bool"
         in 10..30 -> ""
         is String -> "String"
     }
 
+    fun testWhen(data: Any) {
+        when (data) {
+            1 -> println("data value is 1")
+            "hello" -> println("data value is hello")
+            is Boolean -> println("data type is Boolean")
+        }
+    }
+
     //6. if else 대체용으로 사용
     var a7 = 10
-    when{
-        a7 in 1..10 -> ""
-        a7 in 11..20 -> ""
+    when (a7) {
+        in 1..10 -> println("a7? 1~10")
+        in 11..20 -> println("a7? 11~20")
     }
+
     //표현식으로 사용할 때는 else 가 필요함
-    println("${when{
-        a7 in 1..10 -> ""
-        a7 in 11..20 -> ""
+    println("${
+    when {
+        a7 in 1..10 -> println("a7_1? 1~10")
+        a7 in 11..20 -> println("a7_1? 11~20")
         else -> "else"
     }}")
 }
