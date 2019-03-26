@@ -16,9 +16,23 @@ class User {
         set(value) {
             if (value > 0) field = value else field = 0
         }
+
+    var testStr = ""
+    get() = field.toUpperCase()
+//    set(value) {
+//        field = value + field
+//    }
+
+
 }
 
 fun main(args: Array<String>) {
+    println("testStr=================")
+    var user1_1 = User()
+    user1_1.testStr = "jane"
+    println(user1_1.testStr)
+    user1_1.testStr = "jiho"
+    println(user1_1.testStr)
 
     println("property=================")
     var obj = User()
@@ -33,13 +47,13 @@ fun main(args: Array<String>) {
 
     println("ByLazyTest=================")
     var lazyTest = ByLazyTest()
-    println("이름 사용 전")
+    println("ByLazyTest 이름 사용 전")
     println(lazyTest.name)
-    println("이름 사용 후")
-
-    println("나이 사용 전")
-    println(lazyTest.age)
-    println("나이 사용 후")
+    println("ByLazyTest 이름 사용 후")
+//
+//    println("ByLazyTest 나이 사용 전")
+//    println(lazyTest.age)
+//    println("ByLazyTest 나이 사용 후")
 }
 
 /**
@@ -88,7 +102,7 @@ class ByLazyTest{
 //    val name : String by lazy = "name" //요렇게는 사용 못함
 
     val name : String by lazy{
-        println("lazy name")
+        println("ByLazyTest property 안 : lazy name")
         "kim"
     }
 
@@ -98,10 +112,30 @@ class ByLazyTest{
     }
 
     init{
-        println("여기는 초기화 블럭")
+        println("ByLazyTest 여기는 초기화 블럭")
     }
 
     constructor(){
-        println("여기는 생성자")
+        println("ByLazyTest 여기는 생성자")
     }
+}
+
+/**
+ * 생성자에 var val 로 선언한 변수에 get(), set() 가능?
+ * */
+
+class ValVarTest_1(var input : String){
+//    input.set
+    var input_1 = input
+        get() = field.toUpperCase()
+        set(value) {field = "set 에서 추가함" + value}
+
+}
+
+class ValVarTest_2(input : String){
+    //    input.set
+    var input = input
+        get() = field.toUpperCase()
+        set(value) {field = "set 에서 추가함" + value}
+
 }

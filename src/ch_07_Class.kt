@@ -15,6 +15,9 @@
  * 생성자 : 주 생성자 / 보조 생성자로 구분
  **/
 
+fun main(args: Array<String>) {
+
+}
 //주생성자는 하나의 클래스에 하나만 정의할 수 있음
 class MyClass{}     //컴파일러가 자동으로 매개변수 없는 주 생성자를 추가함
 class MyClass2(){}  //constructor 생략 가능
