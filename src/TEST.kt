@@ -87,6 +87,16 @@ exists before trying to add
 // Your Solution Here
 
 fun main(args: Array<String>) {
+    var x = 4
+    var sb = StringBuffer("..fedcba");
+    sb.delete(3,6)
+    println(sb)
+    sb.insert(3,"az")
+    println(sb)
+    if(sb.length>6) x = sb.indexOf("b")
+    println(sb)
+    sb.delete((x-3),(x-2))
+    println(sb)
 
 
     // Test your classes here
